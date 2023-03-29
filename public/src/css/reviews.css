@@ -1,0 +1,62 @@
+.forum__container{
+    background-color:#303030;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 20px;
+    font-size: 32px;
+    padding: 20px 40px;
+}
+
+.forum__text{
+    flex: 50%;
+    max-width: 46%;
+    font-size: 1.3rem;
+    background-color:  #435d77;
+    color: #d2c5af;
+    border-radius: 10px;
+}
+
+.forum__text-title{
+    text-align: center;
+    font-weight: 600;
+}
+
+.forum__text-body{
+    margin: 1px 10px;
+}
+
+.forum__text-author{
+    text-align: right;
+    margin: 1px 10px;
+}
+
+.forum__error{
+    margin: 0 30%;
+    text-align: center;
+    color: white;
+    background: #e82828;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+}
+
+.preloader__image {
+    background: url('/src/images/preloader.gif') no-repeat 50% 50%;
+    position: fixed;
+    width: 64px;
+    height: 64px;
+    top: 50%;
+    left: 50%;
+    margin-top: -32px;
+    margin-left: -32px;
+}

@@ -1,0 +1,82 @@
+.news{
+    background-color: #442f2f;
+}
+
+.form__question{
+
+}
+
+.form {
+    max-width: 50%;
+    margin-top: 10px;
+    padding: 20px ;
+    color: #d2c5af;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.form__input {
+    color: #d2c5af;
+    background-color: #303030;
+    font-family: inherit;
+    height: 30px;
+    font-size: inherit;
+    border: solid #303030;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.form__select {
+    font-family: inherit;
+    height: 30px;
+    font-size: inherit;
+    font-weight: inherit;
+    color: #d2c5af;
+    background: #303030;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.form__container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 95%;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.form__player {
+    display: flex;
+    font-size: 1rem;
+    color: #303030;
+    background-color: #d2c5af;
+    border-radius: 2px;
+}
+
+.form__text-field__button {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.form__checkbox {
+
+}
+
+.form__button {
+    font-family: inherit;
+    height: 30px;
+    font-size: inherit;
+    font-weight: inherit;
+    color: #d2c5af;
+    background: #303030;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+[form_option="new"] .form__player:not([player_option="new"]),
+[form_option="completed"] .form__player:not([player_option="completed"]) {
+    display: none;
+}
