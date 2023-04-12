@@ -19,10 +19,10 @@
 }
 
 .nav__list {
-    margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
+    margin: 0 250px 0 0;
 }
 
 .nav__item {
@@ -176,3 +176,37 @@
         font-size: small;
     }
 }
+
+.nav__container{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.session__form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 20px;
+}
+
+.session__text{
+    display: block;
+    width: 80%;
+    resize:none;
+    background-color: #442f2f;
+    border: none;
+    color: #d2c5af;
+}
+
+.session__button{
+    color: #d2c5af;
+    background-color: #435d77;
+    border: none;
+    font-size: 16px;
+}
+
+
+
+

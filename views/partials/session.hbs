@@ -1,0 +1,26 @@
+{{#if login}}
+  <form action="/index.hbs" >
+    <div class="session__form">
+      <h2 class="nav__item"><a class="nav__link" href="#">Ваш Логин</a></h2>
+      <button class="session__button" type="submit">
+        Выйти
+      </button>
+    </div>
+
+  </form>
+{{else}}
+  <form action="/authorized" method="get">
+    <div class="session__form">
+      <label>
+        <textarea class="session__text">Логин</textarea>
+      </label>
+      <label>
+        <textarea class="session__text">Пароль</textarea>
+      </label>
+      <button class="session__button" type="submit">
+        Войти
+      </button>
+    </div>
+
+  </form>
+{{/if}}

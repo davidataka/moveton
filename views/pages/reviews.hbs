@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="ресторан Моветон в СПБ" />
+  <meta name="keywords" content="ресторан,моветон,Санкт-Петербург,СПБ" />
+  {{> shared_scripts_styles}}
+  <link href="src/css/reviews.css" rel="stylesheet">
+  <title>ресторан "Моветон" в СПБ - главная</title>
+</head>
+<body>
+{{> header}}
+<main>
+  {{> main_info logo='Отзывы'}}
+  <div class="forum__error"></div>
+  <div class="forum__container">
+  </div>
+  <div class="preloader">
+    <div class="preloader__image"></div>
+  </div>
+</main>
+{{>footer}}
+<script src="src/scripts/forumGeneration.js"></script>
+</body>
+</html>

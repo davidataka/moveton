@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="ресторан Моветон в СПБ" />
+  <meta name="keywords" content="ресторан,моветон,Санкт-Петербург,СПБ" />
+  {{> shared_scripts_styles}}
+  <link href="src/css/mainSwiper.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <title>ресторан "Моветон" в СПБ - главная</title>
+</head>
+<body>
+{{> header}}
+<main>
+  {{> main_info logo='Проводите время с кайфом' logo__description=1}}
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img class="img__item" src="src/images/6.jpg"></div>
+      <div class="swiper-slide"><img class="img__item" src="src/images/7.jpg"></div>
+      <div class="swiper-slide"><img class="img__item" src="src/images/8.jpg"></div>
+      <div class="swiper-slide"><img class="img__item" src="src/images/9.jpg"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <aside class="slogan">
+        <span class="slogan__text">
+                Краткий девиз нашего заведения, если говорить на современном:
+            </span>
+    <pre class="slogan__code">
+            <code>if (ты != совсем дурной) {
+            console.log('Добро пожаловать');
+        }else {
+            console.log('Не подходи к этой двери');
+            }</code>
+        </pre>
+    <blockquote class="quote">
+      <p class="quote__text">Владей страстями, иначе страсти овладеют тобой</p>
+      <cite class="quote__author">Кама Bullet</cite>
+    </blockquote>
+  </aside>
+</main>
+{{> footer}}
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="src/scripts/mainSwiper.js"></script>
+</body>
+</html>
