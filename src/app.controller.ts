@@ -11,6 +11,9 @@ import {
 import { AppService } from './app.service';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
 
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+
+@ApiBearerAuth()
 @Controller()
 @UseInterceptors(LoggingInterceptor)
 export class AppController {
