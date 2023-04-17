@@ -18,10 +18,6 @@ export class MenuService {
     return new NotImplementedException();
   }
 
-  async findDish(name: string): Promise<any> {
-    return new NotImplementedException();
-  }
-
   async findAllDishes(): Promise<any> {
     return new NotImplementedException();
   }
