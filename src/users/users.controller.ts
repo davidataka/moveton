@@ -33,6 +33,14 @@ export class UsersController {
     return this.userService.createUser(createUserDto);
   }
 
+  @Put(':id')
+  async updateUser(
+    @Param('id') id: number,
+    @Body() createUserDto: CreateUserDto,
+  ): Promise<any> {
+    return this.userService.updateUser(id, createUserDto);
+  }
+
   @Get(':id/orders')
   async getOrdersByUserId(@Param('id') id: number): Promise<any> {
     return this.userService.getOrdersByUserId(id);

@@ -26,9 +26,32 @@ export class OrdersController {
     return this.ordersService.createOrderItem(createOrderItemDto);
   }
 
+  @Put('items/:id')
+  async updateOrderItem(
+    @Param('id') id: number,
+    @Body() createOrderItemDto: CreateOrderItemDto,
+  ): Promise<any> {
+    return this.ordersService.updateOrderItem(id, createOrderItemDto);
+  }
+
+  @Delete('items/:id')
+  async deleteOrderItem(@Param('id') id: number): Promise<any> {
+    return this.ordersService.deleteOrderItem(id);
+  }
+
   @Post()
   async createOrder(@Body() createOrderDto: CreateOrderDto): Promise<any> {
     return this.ordersService.createOrder(createOrderDto);
+  }
+
+  @Put(':id')
+  async updateOrder(@Param('id') id: number, @Body() createOrderDto: CreateOrderDto): Promise<any> {
+    return this.ordersService.updateOrder(id, createOrderDto);
+  }
+
+  @Delete(':id')
+  async deleteOrder(@Param('id') id: number): Promise<any> {
+    return this.ordersService.deleteOrder(id);
   }
 
   @Get(':id')
