@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="ресторан Моветон в СПБ" />
+  <meta name="keywords" content="ресторан,моветон,Санкт-Петербург,СПБ" />
+  {{> shared_scripts_styles}}
+  <link href="/src/css/reviews.css" rel="stylesheet">
+  <link href="/src/css/menu.css" rel="stylesheet">
+  <title>ресторан "Моветон" в СПБ - меню</title>
+</head>
+<body>
+{{> header}}
+<main>
+  {{> main_info logo='Меню'}}
+  <div class="forum__container">
+    {{#each dishes}}
+    <div class="menu__item">
+      <img class="img__item" src="/src/images/{{this.id}}.jpg">
+      <div class="menu__item__content">
+        <a href="/menu/dishes/{{this.id}}"><h3>{{this.name}}</h3></a>
+        <p>{{this.description}}</p>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</main>
+{{>footer}}
+</body>
+</html>

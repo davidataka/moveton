@@ -12,6 +12,7 @@ import { CreateOrderItemDto } from './dto/create-orderItem.dto';
 import { CreateOrderDto } from './dto/create-order.dto';
 
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { CreateDishDto } from '../menu/dto/create-dish.dto';
 
 @ApiBearerAuth()
 @ApiTags('orders')
@@ -19,10 +20,43 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 export class OrdersController {
   constructor(private readonly ordersService: OrdersService) {}
 
+  @Get(':id')
+  async getOrder(@Param('id') id: string) {
+    return this.ordersService.getOrder({ id: Number(id) });
+  }
+
+  @Get()
+  async getOrders() {
+    return this.ordersService.findOrders({});
+  }
+
+  @Post()
+  async createOrder(@Body() orderDto: CreateOrderDto) {
+    //const {total, createdAt, user}=orderDto;
+    return this.ordersService.createOrder(orderDto);
+  }
+
+  @Put(':id')
+  async updateOrder(
+    @Param('id') id: string,
+    @Body() createOrderDto: CreateOrderDto,
+  ) {
+    return this.ordersService.updateOrder({
+      where: { id: Number(id) },
+      data: createOrderDto,
+    });
+  }
+
+  @Delete(':id')
+  async deleteOrder(@Param('id') id: number): Promise<any> {
+    return this.ordersService.deleteOrder({ id: Number(id) });
+  }
+
   @Post('items')
   async createOrderItem(
     @Body() createOrderItemDto: CreateOrderItemDto,
-  ): Promise<any> {
+  ){
+    //const {total, createdAt, user}=orderDto;
     return this.ordersService.createOrderItem(createOrderItemDto);
   }
 
@@ -31,38 +65,18 @@ export class OrdersController {
     @Param('id') id: number,
     @Body() createOrderItemDto: CreateOrderItemDto,
   ): Promise<any> {
-    return this.ordersService.updateOrderItem(id, createOrderItemDto);
+    return this.ordersService.updateOrderItem({
+      where: { id: Number(id) },
+      data: createOrderItemDto,
+    });
   }
 
   @Delete('items/:id')
   async deleteOrderItem(@Param('id') id: number): Promise<any> {
-    return this.ordersService.deleteOrderItem(id);
+    return this.ordersService.deleteOrderItem({ id: Number(id) });
   }
+  
 
-  @Post()
-  async createOrder(@Body() createOrderDto: CreateOrderDto): Promise<any> {
-    return this.ordersService.createOrder(createOrderDto);
-  }
-
-  @Put(':id')
-  async updateOrder(@Param('id') id: number, @Body() createOrderDto: CreateOrderDto): Promise<any> {
-    return this.ordersService.updateOrder(id, createOrderDto);
-  }
-
-  @Delete(':id')
-  async deleteOrder(@Param('id') id: number): Promise<any> {
-    return this.ordersService.deleteOrder(id);
-  }
-
-  @Get(':id')
-  async getOrder(@Param('id') id: number): Promise<any> {
-    return this.ordersService.getOrder(id);
-  }
-
-  @Get()
-  async getOrders(): Promise<any> {
-    return this.ordersService.findAllOrders();
-  }
 
   @Get(':orderId/dishes')
   async getDishesByOrderId(@Param('orderId') orderId: number): Promise<any> {

@@ -1,56 +1,73 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put, Render, UseInterceptors
+} from "@nestjs/common";
 import { CreateDishDto } from './dto/create-dish.dto';
 import { MenuService } from './menu.service';
 
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { CreateOrderDto } from "../orders/dto/create-order.dto";
+import { CreateCategoryDto } from './dto/create-category.dto';
+import { LoggingInterceptor } from '../interceptors/logging.interceptor';
 
 @ApiBearerAuth()
 @ApiTags('menu')
 @Controller('menu')
+//@UseInterceptors(LoggingInterceptor)
 export class MenuController {
   constructor(private readonly menuService: MenuService) {}
 
+  @Get('dishes/:id')
+  @Render('pages/dish')
+  async getDish(@Param('id') id: string) {
+    const dish = await this.menuService.getDish({ id: Number(id) });
+    return { dish: dish };
+  }
+
+  @Get()
+  @Render('pages/dishes')
+  async getDishes() {
+    const dishes = await this.menuService.findDishes({});
+    return { dishes: dishes };
+  }
+
+ // @Get('categories/:categoryId/dishes')
+ // async getDishesByCategoryId(@Param('categoryId') categoryId: string) {
+ //   return this.menuService.findDishes({where:});
+ // }
+
   @Post('dishes')
-  async createDish(@Body() createDishDto: CreateDishDto) {
-    return this.menuService.createDish(createDishDto);
+  async createDish(@Body() dishDto: CreateDishDto) {
+    return this.menuService.createDish(dishDto);
   }
 
   @Put('dishes/:id')
   async updateDish(
-    @Param('id') id: number,
+    @Param('id') id: string,
     @Body() createDishDto: CreateDishDto,
   ): Promise<any> {
-    return this.menuService.updateDish(id, createDishDto);
+    return this.menuService.updateDish({
+      where: { id: Number(id) },
+      data: createDishDto,
+    });
   }
 
   @Delete('dishes/:id')
-  async deleteDish(@Param('id') id: number): Promise<any> {
-    return this.menuService.deleteDish(id);
-  }
-
-  @Get('dishes/:id')
-  async getDish(@Param('id') id: number) {
-    return this.menuService.getDish(id);
-  }
-
-  @Get()
-  async getDishes() {
-    return this.menuService.findAllDishes();
-  }
-
-  @Get('categories/:categoryId/dishes')
-  async getDishesByCategoryId(@Param('categoryId') categoryId: number) {
-    return this.menuService.getDishesByCategoryId(categoryId);
+  async deleteDish(@Param('id') id: string): Promise<any> {
+    return this.menuService.deleteDish({ id: Number(id) });
   }
 
   @Get('categories')
   async getCategories() {
-    return this.menuService.findAllCategories();
+    return this.menuService.findCategories({});
   }
 
   @Post('categories')
-  async createCategory(@Body('name') name: string) {
-    return this.menuService.createCategory(name);
+  async createCategory(@Body() categoryDto: CreateCategoryDto) {
+    return this.menuService.createCategory(categoryDto);
   }
 }

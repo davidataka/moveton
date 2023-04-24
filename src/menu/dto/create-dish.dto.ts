@@ -1,12 +1,18 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty, IsNumberString, IsString } from 'class-validator';
 
 export class CreateDishDto {
-  @ApiProperty({ nullable: false })
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsString()
   name: string;
-  @ApiProperty({ nullable: false })
+
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsString()
   description: string;
-  @ApiProperty({ nullable: false })
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsNumberString()
   price: number;
-  @ApiProperty({ nullable: false })
-  categories: number[];
 }

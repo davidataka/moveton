@@ -11,11 +11,7 @@ import { OrdersModule } from './orders/orders.module';
   imports: [UsersModule, MenuModule, OrdersModule],
   controllers: [AppController],
   providers: [
-    AppService,
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: LoggingInterceptor,
-    },
+    AppService
   ],
 })
 export class AppModule {}

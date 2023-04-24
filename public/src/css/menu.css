@@ -1,0 +1,28 @@
+.menu__item img {
+    margin-right: 20px;
+    max-width: 45%;
+    height: auto;
+    border-radius: 8px;
+}
+.menu__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #d2c5af ;
+}
+
+
+.menu__item__content {
+    flex: 1;
+}
+
+
+.menu__item a {
+    margin-top: 0;
+    text-decoration: none;
+    color: black;
+}
+
+.menu__item p {
+    margin-bottom: 0;
+}
