@@ -1,10 +1,18 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Prisma } from '@prisma/client';
+import { IsNotEmpty, IsNumberString, IsString } from 'class-validator';
 
 export class CreateOrderDto {
-  @ApiProperty({ nullable: false })
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsNumberString()
   total: number;
-  @ApiProperty({ nullable: false })
-  userId: number;
-  @ApiProperty({ nullable: false })
-  createdAt: Date;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  createdAt: Date | string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  user: Prisma.UserCreateNestedOneWithoutOrdersInput;
 }

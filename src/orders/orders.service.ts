@@ -1,42 +1,67 @@
 import { Injectable, NotImplementedException } from '@nestjs/common';
 import { CreateOrderItemDto } from './dto/create-orderItem.dto';
 import { CreateOrderDto } from './dto/create-order.dto';
+import { PrismaService } from '../prisma.service';
+import { Dish, Order, OrderItem, Prisma } from "@prisma/client";
 
 @Injectable()
 export class OrdersService {
-  async createOrderItem(CreateOrderItemDto): Promise<any> {
-    return new NotImplementedException();
+  constructor(private prisma: PrismaService) {}
+
+  async createOrderItem(data: Prisma.OrderItemCreateInput): Promise<OrderItem> {
+    return this.prisma.orderItem.create({
+      data,
+    });
   }
 
-  async updateOrderItem(
-    id: number,
-    orderItem: CreateOrderItemDto,
-  ): Promise<any> {
-    return new NotImplementedException();
+  async updateOrderItem(params: {
+    where: Prisma.OrderItemWhereUniqueInput;
+    data: Prisma.OrderItemUpdateInput;
+  }): Promise<OrderItem> {
+    return this.prisma.orderItem.update(params);
   }
 
-  async deleteOrderItem(id: number): Promise<any> {
-    return new NotImplementedException();
+  async deleteOrderItem(where: Prisma.OrderItemWhereUniqueInput): Promise<OrderItem> {
+    return this.prisma.orderItem.delete({
+      where,
+    });
   }
 
-  async createOrder(CreateOrderDto): Promise<any> {
-    return new NotImplementedException();
+  async getOrder(
+    dishWhereUniqueInput: Prisma.DishWhereUniqueInput,
+  ): Promise<Dish | null> {
+    return this.prisma.dish.findUnique({
+      where: dishWhereUniqueInput,
+    });
   }
 
-  async updateOrder(id: number, order: CreateOrderDto): Promise<any> {
-    return new NotImplementedException();
+  async findOrders(params: {
+    skip?: number;
+    take?: number;
+    cursor?: Prisma.OrderWhereUniqueInput;
+    where?: Prisma.OrderWhereInput;
+    orderBy?: Prisma.OrderOrderByWithRelationInput;
+  }): Promise<Order[]> {
+    return this.prisma.order.findMany(params);
   }
 
-  async deleteOrder(id: number): Promise<any> {
-    return new NotImplementedException();
+  async createOrder(data: Prisma.OrderCreateInput): Promise<Order> {
+    return this.prisma.order.create({
+      data,
+    });
   }
 
-  async getOrder(id: number): Promise<any> {
-    return new NotImplementedException();
+  async updateOrder(params: {
+    where: Prisma.OrderWhereUniqueInput;
+    data: Prisma.OrderUpdateInput;
+  }): Promise<Order> {
+    return this.prisma.order.update(params);
   }
 
-  async findAllOrders(): Promise<any> {
-    return new NotImplementedException();
+  async deleteOrder(where: Prisma.OrderWhereUniqueInput): Promise<Order> {
+    return this.prisma.order.delete({
+      where,
+    });
   }
 
   async getDishesByOrderId(orderId: number): Promise<any> {
