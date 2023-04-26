@@ -5,9 +5,19 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 import * as hbs from 'hbs';
 import { ValidationPipe } from '@nestjs/common';
+import supertokens from 'supertokens-node';
+import { SupertokensExceptionFilter } from './auth/auth.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
+  app.enableCors({
+    origin: [process.env.DOMAIN],
+    allowedHeaders: ['content-type', ...supertokens.getAllCORSHeaders()],
+    credentials: true,
+  });
+
+  app.useGlobalFilters(new SupertokensExceptionFilter());
 
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
 

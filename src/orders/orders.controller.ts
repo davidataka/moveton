@@ -14,7 +14,7 @@ import { CreateOrderDto } from './dto/create-order.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CreateDishDto } from '../menu/dto/create-dish.dto';
 
-@ApiBearerAuth()
+
 @ApiTags('orders')
 @Controller('orders')
 export class OrdersController {

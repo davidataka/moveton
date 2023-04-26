@@ -13,7 +13,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
-@ApiBearerAuth()
+
 @ApiTags('user')
 @Controller('users')
 export class UsersController {
