@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module';
 import { MenuModule } from './menu/menu.module';
 import { OrdersModule } from './orders/orders.module';
 import { AuthModule } from './auth/auth.module';
+import { SocketModule } from './socket/socket.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { AuthModule } from './auth/auth.module';
         websiteBasePath: '/auth',
       },
     }),
+    SocketModule,
   ],
   controllers: [AppController],
   providers: [AppService],
