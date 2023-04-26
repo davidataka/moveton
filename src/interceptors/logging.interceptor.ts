@@ -16,9 +16,9 @@ export class LoggingInterceptor implements NestInterceptor {
     const start = Date.now();
     return next.handle().pipe(
       tap(() => {
-        const httpContext = context.switchToHttp();
-        const request = httpContext.getRequest();
-        request.dishes = request.dishes || [];
+        //const httpContext = context.switchToHttp();
+        //const request = httpContext.getRequest();
+        //request.dishes = request.dishes || [];
       }),
       map(() => ({ processing: `${Date.now() - start}` })),
     );

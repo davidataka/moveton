@@ -6,7 +6,7 @@ import {
   Param,
   Post,
   Put, Render, UseInterceptors
-} from "@nestjs/common";
+} from '@nestjs/common';
 import { CreateDishDto } from './dto/create-dish.dto';
 import { MenuService } from './menu.service';
 
@@ -14,7 +14,6 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { LoggingInterceptor } from '../interceptors/logging.interceptor';
 
-@ApiBearerAuth()
 @ApiTags('menu')
 @Controller('menu')
 //@UseInterceptors(LoggingInterceptor)
