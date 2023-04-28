@@ -7,6 +7,7 @@ const app = new Vue({
     messages: [],
     socket: null,
   },
+  delimiters: ['[', ']'],
   methods: {
     sendMessage() {
       if (this.validateInput()) {
