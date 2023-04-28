@@ -22,7 +22,7 @@ import Session from 'supertokens-node/recipe/session';
 //import { SessionContainer } from 'supertokens-node/recipe/session';
 
 @Controller()
-@UseInterceptors(LoggingInterceptor)
+//@UseInterceptors(LoggingInterceptor)
 export class AppController {
   constructor(private readonly appService: AppService) {}
 

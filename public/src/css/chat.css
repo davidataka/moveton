@@ -1,0 +1,6 @@
+.chat__item{
+    border-left: 7px solid #442f2f;
+    background-color:#d2c5af ;
+    padding: 1px 20px 10px;
+    box-shadow: 10px 5px 5px #d2c5af;
+}
