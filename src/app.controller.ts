@@ -64,4 +64,10 @@ export class AppController {
   reviews() {
     return {};
   }
+
+  @Get('/registration')
+  @Render('pages/registration')
+  registration() {
+    return {};
+  }
 }

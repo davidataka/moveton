@@ -15,6 +15,16 @@ export class MenuService {
     });
   }
 
+  async getDishCategories(
+    dishWhereUniqueInput: Prisma.DishWhereUniqueInput,
+  ): Promise<string[]> {
+    const dish = await this.prisma.dish.findUnique({
+      where: dishWhereUniqueInput,
+      include: { categories: true },
+    });
+    return dish.categories.map((category) => category.name);
+  }
+
   async findDishes(params: {
     skip?: number;
     take?: number;
@@ -43,6 +53,7 @@ export class MenuService {
       where,
     });
   }
+
 
   async getCategory(
     categoryWhereUniqueInput: Prisma.CategoryWhereUniqueInput,
@@ -86,4 +97,6 @@ export class MenuService {
   async getDishesByCategoryId(orderId: number): Promise<any> {
     return new NotImplementedException();
   }
+
+
 }

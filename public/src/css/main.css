@@ -1,4 +1,4 @@
-/*:root {
+:root {
     --1-color: #FF0000;
     --2-color: #303030;
     --3-color: #FFFFFF;
@@ -6,8 +6,8 @@
     --5-color: #5E362A;
     --6-color: #442f2f;
     --7-color: #1E376F;
-    --8-color: #435d77
-}*/
+    --8-color: #435d77;
+}
 
 .header {
     background-color: #303030;
@@ -22,11 +22,15 @@
     padding: 0;
     list-style: none;
     display: flex;
-    margin: 0 250px 0 0;
+    margin: 0;
 }
 
 .nav__item {
     margin-right: 20px;
+}
+
+.nav__item:last-child {
+    margin-right: 0;
 }
 
 .nav__link {
@@ -157,9 +161,10 @@
 }
 
 @media screen and (max-width: 800px) {
-    .nav__link{
+    .nav__link {
         font-size: 14px;
     }
+
     .main_info {
         font-size: 16px;
     }
@@ -168,43 +173,76 @@
         font-size: 14px;
     }
 
-    .slogan__code{
+    .slogan__code {
         font-size: 12px;
     }
 
-    .extra_info{
+    .extra_info {
         font-size: small;
     }
 }
 
-.nav__container{
-    margin: 0;
-    padding: 0;
+
+.session__container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    background: white;
 }
 
 .session__form {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: baseline;
     justify-content: space-between;
-    height: 20px;
+    background-color: #303030;
+    color: #d2c5af;
+    padding: 40px;
+    border-radius: 8px;
+    width: 400px;
+    margin-right: 20px;
 }
 
-.session__text{
+.session__label {
+    font-size: large;
     display: block;
-    width: 80%;
-    resize:none;
-    background-color: #442f2f;
-    border: none;
-    color: #d2c5af;
+    text-align: left;
+    margin-bottom: 5px;
 }
 
-.session__button{
-    color: #d2c5af;
-    background-color: #435d77;
+.session__text {
+    width: 94%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.session__buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.session__button {
+    color: white;
+    background-color: darkred;
+    padding: 10px 20px;
     border: none;
-    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+.session__button:hover {
+    background-color: #6c0101;
+}
+
+.session_image {
+    height: 280px;
+    width: auto;
+    border-radius: 4px;
 }
 
 
