@@ -13,13 +13,14 @@
 {{> header}}
 <main>
   {{> main_info logo='Меню'}}
-  <div class="forum__container">
+  <div class="menu__content">
     {{#each dishes}}
     <div class="menu__item">
-      <img class="img__item" src="/src/images/{{this.id}}.jpg">
+      <img class="img__item" src="/src/images/food/{{this.id}}.jpg">
       <div class="menu__item__content">
         <a href="/menu/dishes/{{this.id}}"><h3>{{this.name}}</h3></a>
         <p>{{this.description}}</p>
+        <p>Цена: {{this.price}} руб.</p>
       </div>
     </div>
     {{/each}}

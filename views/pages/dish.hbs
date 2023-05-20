@@ -12,15 +12,18 @@
 <body>
 {{> header}}
 <main>
-  <div class="forum__container">
-      <div class="menu__item">
-        <img class="img__item" src="/src/images/{{dish.id}}.jpg">
-        <div class="menu__item__content">
+      <div class="dish__item">
+        <img class="dish__img__item" src="/src/images/food/{{dish.id}}.jpg">
+        <div class="dish__item__content">
           <a href="/menu/dishes/{{dish.id}}"><h3>{{dish.name}}</h3></a>
           <p>{{dish.description}}</p>
+          <p>Цена: {{dish.price}} руб.</p>
+          <p>Категории:</p>
+          {{#each categories}}
+            <p><span>{{this}}</span></p>
+          {{/each}}
         </div>
       </div>
-  </div>
 </main>
 {{>footer}}
 </body>

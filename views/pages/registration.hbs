@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="ресторан Моветон в СПБ" />
+  <meta name="keywords" content="ресторан,моветон,Санкт-Петербург,СПБ" />
+  {{> shared_scripts_styles}}
+  {{> session_scripts}}
+  <link href="/src/css/form.css" rel="stylesheet">
+  <title>ресторан "Моветон" в СПБ - новости</title>
+</head>
+<body>
+{{> header}}
+<main>
+  {{> main_info logo='Вход | Регистрация'}}
+  <div class="session__container">
+  {{> signIn}}
+  </div>
+</main>
+{{> footer}}
+<script src="/src/scripts/form.js"></script>
+</body>
+</html>

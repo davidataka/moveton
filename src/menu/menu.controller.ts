@@ -24,7 +24,10 @@ export class MenuController {
   @Render('pages/dish')
   async getDish(@Param('id') id: string) {
     const dish = await this.menuService.getDish({ id: Number(id) });
-    return { dish: dish };
+    const categories = await this.menuService.getDishCategories({
+      id: Number(id),
+    });
+    return { dish: dish, categories: categories };
   }
 
   @Get()

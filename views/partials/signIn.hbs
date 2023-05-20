@@ -1,0 +1,21 @@
+<form class="session__form">
+
+  <label class="session__label" for="email">Почта</label>
+  <input class="session__text" type="text" name="email" id="email" placeholder="Введите электронную почту">
+
+  <label class="session__label" for="password">Пароль</label>
+  <input class="session__text" type="password" name="password" id="password" placeholder="Введите пароль">
+  <div class="session__buttons">
+    <button class="session__button" type="submit"
+            onclick="signInClicked(document.getElementById('email').value, document.getElementById('password').value)">
+      Вход
+    </button>
+    <button class="session__button" type="submit"
+            onclick="signUpClicked(document.getElementById('email').value, document.getElementById('password').value)">
+      Регистрация
+    </button>
+  </div>
+</form>
+
+  <img class="session_image" src="src/images/1.jpg">
+
